@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101716">
+  <meta name="description" content="Descend the storm-worn Windglass Keep in this original turn-based fantasy dungeon crawler.">
+  <title>The Windglass Keep</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="masthead">
+      <div class="brand-mark" aria-hidden="true">✦</div>
+      <div class="brand-copy">
+        <p class="eyebrow">A turn-based dungeon adventure</p>
+        <h1>The Windglass Keep</h1>
+      </div>
+      <button id="menu-button" class="quiet-button" type="button" aria-label="Open game menu">☰ <span>Menu</span></button>
+    </header>
+
+    <main class="game-layout">
+      <section class="play-column" aria-label="Dungeon">
+        <div class="map-frame">
+          <div class="map-topline">
+            <div><span class="live-dot"></span><span id="floor-label">The road to the keep</span></div>
+            <span id="turn-label">A new tale awaits</span>
+          </div>
+          <div class="canvas-wrap">
+            <canvas id="dungeon" width="768" height="512" aria-label="Dungeon map. Use arrow keys or WASD to move, or click a nearby tile."></canvas>
+            <div id="intro-scrim" class="intro-scrim">
+              <div class="intro-card">
+                <p class="eyebrow">A storm has swallowed the northern road</p>
+                <h2>Enter the old keep</h2>
+                <p>Find the source of the gale beneath the mountain. Gather what you need. Every step gives the dark a turn.</p>
+                <div class="class-choices" role="group" aria-label="Choose your calling">
+                  <button type="button" class="class-choice" data-class="sentinel"><strong>Sentinel</strong><span>Hardy · close combat</span></button>
+                  <button type="button" class="class-choice" data-class="arcanist"><strong>Arcanist</strong><span>Fragile · potent magic</span></button>
+                  <button type="button" class="class-choice" data-class="wayfarer"><strong>Wayfarer</strong><span>Balanced · resourceful</span></button>
+                </div>
+                <button id="continue-button" class="continue-button" type="button" hidden>Continue saved journey</button>
+                <p class="microcopy">Your journey saves in this browser automatically.</p>
+              </div>
+            </div>
+          </div>
+          <div class="map-legend">
+            <span><i class="legend-player"></i>You</span><span><i class="legend-foe"></i>Threat</span><span><i class="legend-loot"></i>Find</span><span><i class="legend-stairs">⌄</i>Down</span>
+            <span class="legend-hint">Click a visible tile to walk · <kbd>G</kbd> gather · <kbd>E</kbd> descend</span>
+          </div>
+        </div>
+
+        <section class="combat-dock" aria-label="Actions">
+          <div class="dock-heading"><span class="eyebrow">Spellbook</span><span id="spell-hint">Magic returns with each turn</span></div>
+          <div class="spell-row">
+            <button class="spell-button" data-spell="frost" type="button"><span class="spell-key">1</span><span class="spell-glyph frost-glyph">✳</span><span class="spell-name">Frost dart</span><small>4 mana</small></button>
+            <button class="spell-button" data-spell="mend" type="button"><span class="spell-key">2</span><span class="spell-glyph mend-glyph">✚</span><span class="spell-name">Mend</span><small>5 mana</small></button>
+            <button class="spell-button locked" data-spell="storm" type="button"><span class="spell-key">3</span><span class="spell-glyph storm-glyph">ϟ</span><span class="spell-name">Storm lash</span><small>Learn at level 2</small></button>
+            <button class="spell-button locked" data-spell="ward" type="button"><span class="spell-key">4</span><span class="spell-glyph ward-glyph">◈</span><span class="spell-name">Wind ward</span><small>Learn at level 3</small></button>
+          </div>
+          <button id="descend-button" class="descend-button" type="button" disabled>Find the stairway <span>↓</span></button>
+        </section>
+
+        <section class="journal-card" aria-label="Adventure log">
+          <div class="section-heading"><div><p class="eyebrow">Field notes</p><h2>Journal</h2></div><span class="journal-symbol">⌁</span></div>
+          <ol id="journal" class="journal-list" aria-live="polite"></ol>
+        </section>
+      </section>
+
+      <aside class="sidebar" aria-label="Character and inventory">
+        <section class="character-card">
+          <div class="section-heading character-heading"><div><p class="eyebrow" id="class-label">Awaiting a traveler</p><h2 id="character-name">The Wayfarer</h2></div><span id="level-badge" class="level-badge">—</span></div>
+          <div class="meter-group">
+            <div class="meter-label"><span>Vitality</span><span id="health-label">— / —</span></div>
+            <div class="meter"><i id="health-meter" class="health-fill"></i></div>
+            <div class="meter-label mana-label"><span>Focus</span><span id="mana-label">— / —</span></div>
+            <div class="meter"><i id="mana-meter" class="mana-fill"></i></div>
+            <div class="meter-label xp-label"><span>Experience</span><span id="xp-label">—</span></div>
+            <div class="meter xp-meter"><i id="xp-meter" class="xp-fill"></i></div>
+          </div>
+          <div class="stat-strip">
+            <div><span>Force</span><strong id="strength-stat">—</strong></div>
+            <div><span>Insight</span><strong id="int-stat">—</strong></div>
+            <div><span>Guard</span><strong id="guard-stat">—</strong></div>
+          </div>
+        </section>
+
+        <section class="gear-card">
+          <div class="section-heading compact-heading"><div><p class="eyebrow">Worn gear</p><h2>Equipment</h2></div></div>
+          <div id="equipment-list" class="equipment-list"><p class="empty-note">Your hands are empty.</p></div>
+        </section>
+
+        <section class="inventory-card">
+          <div class="section-heading compact-heading"><div><p class="eyebrow">On your person</p><h2>Satchel</h2></div><span id="weight-label" class="weight-label">0 / 0 kg</span></div>
+          <div id="inventory-list" class="inventory-list"><p class="empty-note">Nothing carried yet.</p></div>
+          <div id="ground-pickup" class="ground-pickup" hidden></div>
+        </section>
+
+        <section class="objective-card">
+          <p class="eyebrow">Purpose</p>
+          <p id="objective-text">Choose a calling and follow the storm to the keep.</p>
+          <div class="floor-progress" aria-label="Keep depth"><i></i><i></i><i></i><i></i></div>
+        </section>
+
+        <p class="controls-note"><kbd>↑ ↓ ← →</kbd> move <span>·</span> <kbd>1–4</kbd> cast <span>·</span> <kbd>I</kbd> focus satchel <span>·</span> <kbd>Esc</kbd> pause</p>
+      </aside>
+    </main>
+    <footer class="page-footer"><span>THE WINDGLASS KEEP</span><span>Walk carefully. The keep always answers.</span></footer>
+  </div>
+
+  <dialog id="game-dialog" class="game-dialog">
+    <form method="dialog"><button class="dialog-close" aria-label="Close dialog">×</button></form>
+    <div id="dialog-content"></div>
+  </dialog>
+  <div id="sr-status" class="visually-hidden" aria-live="assertive"></div>
+</body>
+</html>
