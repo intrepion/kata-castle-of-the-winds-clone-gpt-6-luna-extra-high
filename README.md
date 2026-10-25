@@ -1,5 +1,9 @@
 # The Windglass Keep
 
+## Play online
+
+[Play The Windglass Keep](https://intrepion.github.io/kata-castle-of-the-winds-clone-gpt-6-luna-extra-high/) — free, playable in your browser.
+
 A small, self-contained browser dungeon crawler inspired by classic turn-based tile RPGs. Explore four hand-shaped-by-procedure floors, fight monsters one turn at a time, learn spells, manage equipment and carrying weight, and take on the Gale Warden. The setting, writing, and graphics are original.
 
 ## Play
