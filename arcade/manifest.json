@@ -1,6 +1,47 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "gameId": "kata-castle-of-the-winds-clone-gpt-6-luna-extra-high",
   "playUrl": "https://intrepion.github.io/kata-castle-of-the-winds-clone-gpt-6-luna-extra-high/",
-  "screenshots": []
+  "screenshots": [
+    {
+      "path": "arcade/screenshots/ci-20261102-01.jpg",
+      "sha256": "c8bc09f87e5bf9ec22e7f575b75b12cf79e2c2830beb0a9fbda1ed095a6e608e",
+      "alt": "The Windglass Keep gameplay, view 1",
+      "provenance": {
+        "kind": "ci_gameplay_capture",
+        "sourcePath": "arcade/capture-evidence/ci-20261102-01.png",
+        "sourceSha256": "89b2e250f17ea8f3aad211d345b16985793de91ff4431d280448371bbf20639b",
+        "captureCommit": "d12666e706815f7574afc2b2d28f0c75f94882f6",
+        "workflowRunId": "41401505486",
+        "inputHashes": {
+          "index.html": "38d7bd4caedfa809aed744d5ed5c16200d2b8dfc87d44cd025429bdf250871c3",
+          "styles.css": "ea2e1d824a2fa2fd615eeb87ef7da5beafb40eefd1971c026a82cf1b4767b5ce",
+          "game.js": "76a9be49535f9dce90145d6dad68f3b2610d7998c72ceeaad44099487016444e"
+        },
+        "publishedFilesVerifiedAt": "2026-11-02T19:01:20Z",
+        "captureRecordPath": "arcade/capture-evidence/ci-20261102-record.json",
+        "captureRecordSha256": "1f395aec9fdbcb5ddcd3313b589b0960187868a5781c08bb14572e8a12fca834"
+      }
+    },
+    {
+      "path": "arcade/screenshots/ci-20261102-02.jpg",
+      "sha256": "627e05140ffe7003806cc304bd69adbf6b697aab3ed41644159f7c78b81d971a",
+      "alt": "The Windglass Keep gameplay, view 2",
+      "provenance": {
+        "kind": "ci_gameplay_capture",
+        "sourcePath": "arcade/capture-evidence/ci-20261102-02.png",
+        "sourceSha256": "88ae09cef1d7f0fa6e258e734667a1293444d790ab7504dcb27462f22b99b933",
+        "captureCommit": "d12666e706815f7574afc2b2d28f0c75f94882f6",
+        "workflowRunId": "41401505486",
+        "inputHashes": {
+          "index.html": "38d7bd4caedfa809aed744d5ed5c16200d2b8dfc87d44cd025429bdf250871c3",
+          "styles.css": "ea2e1d824a2fa2fd615eeb87ef7da5beafb40eefd1971c026a82cf1b4767b5ce",
+          "game.js": "76a9be49535f9dce90145d6dad68f3b2610d7998c72ceeaad44099487016444e"
+        },
+        "publishedFilesVerifiedAt": "2026-11-02T19:01:20Z",
+        "captureRecordPath": "arcade/capture-evidence/ci-20261102-record.json",
+        "captureRecordSha256": "1f395aec9fdbcb5ddcd3313b589b0960187868a5781c08bb14572e8a12fca834"
+      }
+    }
+  ]
 }

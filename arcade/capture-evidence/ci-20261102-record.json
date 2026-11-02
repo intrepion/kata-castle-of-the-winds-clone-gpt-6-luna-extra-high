@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "workflowCommit": "31c67da9d59b75e0f4f20b92a13ee1745b1252fa",
+  "sourceCommit": "d12666e706815f7574afc2b2d28f0c75f94882f6",
+  "runId": "41401505486",
+  "url": "http://127.0.0.1:4215/",
+  "inputs": {
+    "index.html": "38d7bd4caedfa809aed744d5ed5c16200d2b8dfc87d44cd025429bdf250871c3",
+    "styles.css": "ea2e1d824a2fa2fd615eeb87ef7da5beafb40eefd1971c026a82cf1b4767b5ce",
+    "game.js": "76a9be49535f9dce90145d6dad68f3b2610d7998c72ceeaad44099487016444e"
+  },
+  "browser": "153.0.8010.12",
+  "viewport": {
+    "width": 1280,
+    "height": 1000
+  },
+  "screenshots": [
+    "windglass-ii-01.png",
+    "windglass-ii-02.png"
+  ]
+}
