@@ -29,3 +29,7 @@ Choose a Sentinel, Arcanist, or Wayfarer to begin. Progress saves automatically 
 - Esc: pause
 
 Everything runs locally in the browser; the game has no build step or runtime dependencies.
+
+## Arcade metadata
+
+See [docs/arcade-metadata.md](docs/arcade-metadata.md) for the game-owned manifest and screenshot provenance.
